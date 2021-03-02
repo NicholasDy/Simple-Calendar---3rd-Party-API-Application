@@ -69,3 +69,14 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+.leftside{
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.inputsizing{
+  height: 10%;
+}
+

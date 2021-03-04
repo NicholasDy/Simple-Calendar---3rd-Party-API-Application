@@ -1,25 +1,46 @@
-// moment to set the time on the header of the page
-    // using an if statement to change the colour of the bar based on the time of day 
 var timeDisplay = $('#currentDay');
+var timeBlocks = $('.input-group')
+var saveBtn = $('#saveaction')
+// var textArea = $('.textarea')
+
+
+function color (){
+    var currentTime = parseInt(moment().hours())
+    timeBlocks.each(function() {
+         var hour = parseInt($(this).data('hour'))
+              if (hour === currentTime){
+                  $(this).children("textarea").css('background-color', "red")
+              } else if (hour < currentTime){
+                $(this).children("textarea").css('background-color', "#A9A9A9")
+              } else {
+                $(this).children("textarea").css('background-color', "green")
+              }
+      });
+}
+
 
 function showDate() {
     var today = moment().format('MMM DD, YYYY: hh:mm:ss');
     timeDisplay.text(today)
 }
 
-// using bootstrap to sort the information on the page 
-
-
-// function for save btn to save to local storage 
-function saveInfo(e){
-
+function saveText(){
+    alert('test')
+    localStorage.setItem('hour', JSON.stringify(timeBlocks))
+    showEvent
 }
 
-// having function display the local storage 
+function showEvent() {
+    textArea.innerHTML = ''
+    var newEvent = 
+    textArea.text = newEvent
+}
 
-
-
+color()
 showDate()
 setInterval(showDate, 1000)
+$("#btnside").on('click', saveBtn, saveText)
+   
+
 // adding event listener for the save button 
 

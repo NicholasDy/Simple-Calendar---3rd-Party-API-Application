@@ -57,15 +57,14 @@ textarea{
   color: white;
 }
 
-.saveBtn {
-  border-left: 1px solid black;
+.save-btn {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
 }
 
-.saveBtn i:hover {
+.save-btn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
@@ -73,6 +72,7 @@ textarea{
 .leftside{
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   padding: 5px;
   border-top-right-radius:10px;
   border-bottom-right-radius:10px;
@@ -87,3 +87,22 @@ textarea{
   padding: 1px;
 }
 
+.btnsize{
+  width: 70px;
+}
+
+.boxdims{
+  min-width: 600px;
+}
+
+.present{
+  background-color: red;
+}
+
+.past{
+  background-color: grey;
+}
+
+.future{
+  background-color: green;
+}

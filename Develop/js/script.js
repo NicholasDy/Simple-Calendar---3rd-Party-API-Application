@@ -1,7 +1,7 @@
 var timeDisplay = $('#currentDay');
 var timeBlocks = $('.input-group')
-var saveBtn = $('#saveaction')
-// var textArea = $('.textarea')
+var saveBtn = $('.saveaction')
+var textArea = $('.textarea')
 
 
 function color (){
@@ -25,9 +25,8 @@ function showDate() {
 }
 
 function saveText(){
-    alert('test')
-    localStorage.setItem('hour', JSON.stringify(timeBlocks))
-    showEvent
+    localStorage.setItem($(timeBlocks).data('hour'), JSON.stringify($(textArea).text()))
+    // showEvent
 }
 
 function showEvent() {
@@ -39,7 +38,7 @@ function showEvent() {
 color()
 showDate()
 setInterval(showDate, 1000)
-$("#btnside").on('click', saveBtn, saveText)
+$(".btnside").on('click', saveBtn, saveText)
    
 
 // adding event listener for the save button 

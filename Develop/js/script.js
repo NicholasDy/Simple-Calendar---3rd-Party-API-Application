@@ -24,32 +24,41 @@ function showDate() {
     timeDisplay.text(today)
 }
 
-function saveText(){
-    // localStorage.getItem()
-    var key = $('').first("id")
-    // var value = what is in the text area 
-    console.log(key)
-    localStorage.setItem($(timeBlocks).data('hour'), JSON.stringify($('textarea').text))
-    // showEvent
-}
+// function saveText(){
+//     // localStorage.getItem()
+//     var key = $(this).parent().parent().data('hour')
+//     console.log(key)
+//     var value1 =$.trim($(this).siblings().textArea.value)
+    
+//     console.log(value1)
+//     localStorage.setItem($(timeBlocks).data('hour'), JSON.stringify(value1))
+//     // showEvent
+//     }
 
 function showEvent() {
     textArea.innerHTML = ''
     var newEvent = 
     textArea.text = newEvent
+    // create a for each similar to the color and grab the local storage for each of the cells
 }
 
 color()
 showDate()
 setInterval(showDate, 1000)
-$(".btnside").on('click', saveBtn, saveText)
+// $(".btnside").on('click', saveBtn, saveText)
    
-// $( "#target" ).click(function(event) {
-//     $(this), 
-//  });
+$( saveBtn ).click(function(e) {
+    $(this) 
+    var key = $(this).parent().parent().data('hour')
+    console.log(key)
+    var value1 =$(this).siblings().value
+    console.log(value1)
+    
+    localStorage.setItem($($(this).parent().parent().data('hour')), JSON.stringify(value1))
+ });
 
 // this was suggested from the TA over slack 
 // https://api.jquery.com/attr/
 // https://api.jquery.com/text/
-
+    // have to use the .val() method in order to get the information 
 

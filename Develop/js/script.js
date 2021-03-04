@@ -25,7 +25,11 @@ function showDate() {
 }
 
 function saveText(){
-    localStorage.setItem($(timeBlocks).data('hour'), JSON.stringify($(textArea).text()))
+    // localStorage.getItem()
+    var key = $('').first("id")
+    // var value = what is in the text area 
+    console.log(key)
+    localStorage.setItem($(timeBlocks).data('hour'), JSON.stringify($('textarea').text))
     // showEvent
 }
 
@@ -40,6 +44,12 @@ showDate()
 setInterval(showDate, 1000)
 $(".btnside").on('click', saveBtn, saveText)
    
+// $( "#target" ).click(function(event) {
+//     $(this), 
+//  });
 
-// adding event listener for the save button 
+// this was suggested from the TA over slack 
+// https://api.jquery.com/attr/
+// https://api.jquery.com/text/
+
 

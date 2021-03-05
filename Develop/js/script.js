@@ -17,26 +17,33 @@ function color (){
       });
 }
 
-
 function showDate() {
     var today = moment().format('MMM DD, YYYY: hh:mm:ss');
     timeDisplay.text(today)
 }
 
-function showEvent() {
-
-    for (var i=0; i<localStorage.length; i++){
-        console.log(localStorage.getItem(localStorage.key(i)));
-        textArea.value = localStorage.key(i)
+function showEvent() { 
+    // this is the same as the color function
+    timeBlocks.each(function(){
+        var keyPair = $(this).data('hour')
+        var localEL = localStorage.getItem(key)
+        if (keyPair === localEL){
+            $(this).children("textarea").val()
+            // for(var i=0; i<localStorage.length; i++){
+            //     console.log(localStorage.getItem(localStorage.key(i),(i)));
+            //     textArea.value = localStorage.key(i)
+            // }
+        }
+    })
+    // for (var i=0; i<localStorage.length; i++){
+    //     console.log(localStorage.getItem(localStorage.key(i),(i)));
+    //     textArea.value = localStorage.key(i)
         // if((localStorage.key(i)) === ($(this).data('hour'))) {
             // $('textarea').text = localStorage.val(i)
-    }
 }
+
    
 $( saveBtn ).click(function() { 
-    // var key = $(this).parent().parent().data('hour')
-    // var value1 = $(this).parent().siblings(textArea).val()
-    // var value1 = $.trim(textArea.val())
     var value1 = $.trim($(this).parent().siblings('textarea').val())
     localStorage.setItem($(this).parent().parent().data('hour'), JSON.stringify(value1))
  });

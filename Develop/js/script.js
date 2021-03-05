@@ -1,8 +1,9 @@
 var timeDisplay = $('#currentDay');
 var timeBlocks = $('.input-group')
 var saveBtn = $('.saveaction')
-var textArea = $('.textarea')
+// var textArea = $('.txt-el')change later
 
+var savedEvents = [];
 
 function color (){
     var currentTime = parseInt(moment().hours())
@@ -47,15 +48,29 @@ showDate()
 setInterval(showDate, 1000)
 // $(".btnside").on('click', saveBtn, saveText)
    
-$( saveBtn ).click(function(e) {
-    $(this) 
+$( saveBtn ).click(function() { 
+    console.log(this)
+
     var key = $(this).parent().parent().data('hour')
     console.log(key)
-    var value1 =$(this).siblings().value
+
+    // var value1 = $(this).parent().siblings('.nick').val()
+    var value1 = $(this).parent().siblings().val()
     console.log(value1)
+
+    savedEvents.push({key, value1})
+    console.log(savedEvents)
+
     
-    localStorage.setItem($($(this).parent().parent().data('hour')), JSON.stringify(value1))
+    localStorage.setItem($(key), JSON.stringify(value1))
  });
+
+
+//  $( "#target" ).click(function(event) {
+//     $(this)
+//  });
+
+
 
 // this was suggested from the TA over slack 
 // https://api.jquery.com/attr/

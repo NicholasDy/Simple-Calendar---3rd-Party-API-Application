@@ -3,6 +3,7 @@ var timeBlocks = $('.input-group')
 var saveBtn = $('.saveaction')
 var textArea = $('.textarea')
 
+
 function color (){
     var currentTime = parseInt(moment().hours())
     timeBlocks.each(function() {
@@ -23,26 +24,22 @@ function showDate() {
 }
 
 function showEvent() { 
-    // this is the same as the color function
+    //loops through each time block
     timeBlocks.each(function(){
+        //gets the key
         var keyPair = $(this).data('hour')
-        var localEL = localStorage.getItem(key)
-        if (keyPair === localEL){
-            $(this).children("textarea").val()
-            // for(var i=0; i<localStorage.length; i++){
-            //     console.log(localStorage.getItem(localStorage.key(i),(i)));
-            //     textArea.value = localStorage.key(i)
-            // }
+        console.log('keypair: ', keyPair);
+        //gets the stored value for that key
+        var savedValue = localStorage.getItem(keyPair);
+        console.log('saved value: ', savedValue);
+        //checks if value is true, note: if the value doesnt exist, it will be null
+        if (savedValue){
+            //Then update value
+            $(this).children("textarea").val(savedValue);
         }
     })
-    // for (var i=0; i<localStorage.length; i++){
-    //     console.log(localStorage.getItem(localStorage.key(i),(i)));
-    //     textArea.value = localStorage.key(i)
-        // if((localStorage.key(i)) === ($(this).data('hour'))) {
-            // $('textarea').text = localStorage.val(i)
 }
 
-   
 $( saveBtn ).click(function() { 
     var value1 = $.trim($(this).parent().siblings('textarea').val())
     localStorage.setItem($(this).parent().parent().data('hour'), JSON.stringify(value1))
